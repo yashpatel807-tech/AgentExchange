@@ -1,0 +1,23 @@
+[
+ {"name":"Investment Research MCP","description":"16 finance tools: SEC filings, insider trades, FINRA short interest, live quotes.","category":"Finance","pricing":"free","protocols":["MCP"],"link":"https://www.pulsemcp.com","verified":true},
+ {"name":"Walnut Portfolio Analysis","description":"Portfolio allocation, risk and performance analysis for Claude/ChatGPT.","category":"Finance","pricing":"freemium","protocols":["MCP"],"link":"https://www.pulsemcp.com","verified":true},
+ {"name":"Twelve Data / Yahoo Finance Workers","description":"Remote market-data MCP servers on Cloudflare Workers.","category":"Finance","pricing":"freemium","protocols":["MCP"],"link":"https://www.pulsemcp.com","verified":true},
+ {"name":"Visuary Actuarial Calc","description":"Actuarial value from any health-plan document.","category":"Finance","pricing":"paid","protocols":["MCP"],"link":"https://www.pulsemcp.com","verified":true},
+ {"name":"Crest x402 Payee Verification","description":"Verifies who your agent is about to pay: service, relayer, treasury, or buyer.","category":"Payments","pricing":"free","protocols":["x402","MCP"],"link":"https://www.pulsemcp.com","verified":true},
+ {"name":"HTTP 402 Challenge Inspector","description":"Analyzes x402 payment challenges — debugging for machine payments.","category":"Payments","pricing":"free","protocols":["x402"],"link":"https://www.pulsemcp.com","verified":true},
+ {"name":"Tokenizin Web to Markdown","description":"Any URL to clean agent-readable Markdown. ~7.5k weekly users.","category":"Web & Data","pricing":"free","protocols":["MCP"],"link":"https://www.pulsemcp.com","verified":true},
+ {"name":"cotdp Web Extraction","description":"Scraping and structured extraction toolset.","category":"Web & Data","pricing":"free","protocols":["MCP"],"link":"https://www.pulsemcp.com","verified":true},
+ {"name":"PubFi Crypto Data Gateway","description":"Routed on-chain and market crypto data for agents.","category":"Web & Data","pricing":"paid","protocols":["MCP"],"link":"https://www.pulsemcp.com","verified":true},
+ {"name":"Apify Actors Marketplace","description":"Thousands of scrapers/automations agents run pay-per-event.","category":"Web & Data","pricing":"paid","protocols":["MCP","API"],"link":"https://apify.com","verified":true},
+ {"name":"BYTEROVER Memory","description":"Persistent memory across agent sessions.","category":"Agent Infra","pricing":"freemium","protocols":["MCP"],"link":"https://www.pulsemcp.com","verified":true},
+ {"name":"Push Realm Knowledge Base","description":"Agents search, submit and vote on solutions collaboratively.","category":"Agent Infra","pricing":"free","protocols":["MCP"],"link":"https://www.pulsemcp.com","verified":true},
+ {"name":"Browser Use","description":"Full browser control for agents on any site.","category":"Agent Infra","pricing":"freemium","protocols":["MCP","API"],"link":"https://www.pulsemcp.com","verified":true},
+ {"name":"SVG Render Kit","description":"Structured JSON to rendered SVG for agent content.","category":"Dev Tools","pricing":"free","protocols":["MCP"],"link":"https://www.pulsemcp.com","verified":true},
+ {"name":"CI Failure Triage","description":"Analyzes CI build failures and searches logs.","category":"Dev Tools","pricing":"free","protocols":["MCP"],"link":"https://www.pulsemcp.com","verified":true},
+ {"name":"S3 Snippet Manager","description":"Store, tag, retrieve code snippets in your own S3.","category":"Dev Tools","pricing":"free","protocols":["MCP"],"link":"https://www.pulsemcp.com","verified":true},
+ {"name":"Publora Social Publishing","description":"Publish to 10 social platforms from one integration.","category":"Marketing","pricing":"paid","protocols":["MCP","API"],"link":"https://www.pulsemcp.com","verified":true},
+ {"name":"AdButler Campaign Tools","description":"Full ad-platform management over MCP.","category":"Marketing","pricing":"paid","protocols":["MCP"],"link":"https://www.pulsemcp.com","verified":true},
+ {"name":"Nutrition Image Analysis","description":"Food photo to nutritional breakdown. 17k+ uses.","category":"Consumer","pricing":"free","protocols":["MCP"],"link":"https://www.pulsemcp.com","verified":true},
+ {"name":"Wellness Project Coach","description":"Fitness, nutrition, sleep coaching with Claude/ChatGPT integration.","category":"Consumer","pricing":"freemium","protocols":["MCP"],"link":"https://www.pulsemcp.com","verified":true},
+ {"name":"Specialty Espresso Finder","description":"Curated specialty cafes with quality scoring.","category":"Consumer","pricing":"free","protocols":["MCP"],"link":"https://www.pulsemcp.com","verified":true}
+]
