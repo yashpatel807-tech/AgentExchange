@@ -6,173 +6,38 @@
 <title>AgentExchange — The directory of tools AI agents can use and pay for</title>
 <meta name="description" content="Browse MCP servers and APIs that AI agents can call — free and paid. The trust layer of agent commerce, curated and tested.">
 <link rel="canonical" href="https://agentexchange.online/">
-<meta property="og:title" content="AgentExchange — The directory of tools AI agents can use and pay for">
-<meta property="og:description" content="Browse MCP servers and APIs that AI agents can call — free and paid. The trust layer of agent commerce, curated and tested.">
-<meta property="og:url" content="https://agentexchange.online/">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
 <style>
   :root{
     --paper:#F2F4F7; --ink:#101E33; --wire:#2450DB; --settle:#0B8F63;
-    --tick:#C8501E; --line:#C9D2E0; --card:#FFFFFF; --chipbg:#EEF3FE;
+    --tick:#C8501E; --line:#C9D2E0; --card:#FFFFFF;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.5}
-  .mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+  body{background:var(--paper);color:var(--ink);font-family:-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.5}
+  .mono{font-family:ui-monospace,Menlo,monospace}
   .wrap{max-width:1080px;margin:0 auto;padding:0 18px}
-  header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(242,244,247,.94);backdrop-filter:blur(6px);z-index:20}
+  header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(242,244,247,.94);z-index:20}
   .bar{display:flex;align-items:center;justify-content:space-between;height:58px;gap:12px}
-  .logo{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:1.08rem;white-space:nowrap}
+  .logo{font-weight:700;font-size:1.08rem}
   .logo b{color:var(--wire)}
   .navlinks{display:flex;gap:14px;align-items:center}
   .navlinks a{font-size:.86rem;color:#3A4A63;text-decoration:none;font-weight:600}
   .navlinks a.btn{background:var(--ink);color:#fff;padding:8px 14px;border-radius:6px}
-
   .hero{padding:46px 0 26px;text-align:center}
-  h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:clamp(1.7rem,4vw,2.6rem);letter-spacing:-0.02em;line-height:1.15}
+  h1{font-weight:700;font-size:clamp(1.7rem,4vw,2.6rem);letter-spacing:-0.02em;line-height:1.15}
   h1 .pay{color:var(--settle)}
   .sub{margin:12px auto 0;max-width:56ch;color:#3A4A63;font-size:1rem}
-  .heromoji{font-size:.8rem;color:#5B6B84;margin-top:14px}
-  .heromoji b{color:var(--settle)}
-
   .controls{display:flex;gap:10px;margin:26px 0 8px;flex-wrap:wrap}
   #search{flex:1;min-width:230px;padding:12px 14px;border:1.5px solid var(--ink);border-radius:8px;font-size:.98rem;background:var(--card)}
-  #search:focus{outline:3px solid #C7D4F6;border-color:var(--wire)}
   .chips{display:flex;gap:8px;flex-wrap:wrap;padding:10px 0 4px}
   .chip{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:7px 14px;font-size:.82rem;cursor:pointer;font-weight:600;color:#3A4A63}
   .chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
-
   #grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;padding:18px 0 50px}
-  .tool{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:18px;display:flex;flex-direction:column;gap:9px;transition:box-shadow .15s, transform .15s}
-  .tool:hover{box-shadow:0 12px 28px -14px rgba(16,30,51,.35);transform:translateY(-2px)}
+  .tool{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:18px;display:flex;flex-direction:column;gap:9px}
   .toolhead{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
-  .tool h3{font-family:"Space Grotesk",sans-serif;font-size:1.02rem}
+  .tool h3{font-size:1.02rem}
   .price{font-size:.72rem;font-weight:700;padding:4px 9px;border-radius:999px;white-space:nowrap}
   .price.free{background:#EAF7F1;color:var(--settle)}
   .price.paid{background:#FDF0E9;color:var(--tick)}
-  .price.freemium{background:var(--chipbg);color:var(--wire)}
+  .price.freemium{background:#EEF3FE;color:var(--wire)}
   .tool p{font-size:.87rem;color:#4A5A73;flex:1}
   .meta{display:flex;gap:6px;flex-wrap:wrap}
-  .tag{font-size:.7rem;background:var(--paper);border:1px solid var(--line);padding:3px 8px;border-radius:5px;color:#5B6B84;font-weight:600}
-  .toolfoot{display:flex;justify-content:space-between;align-items:center;margin-top:4px}
-  .toolfoot a{font-size:.83rem;color:var(--wire);font-weight:700;text-decoration:none}
-  .verify{font-size:.72rem;color:#8A97AB}
-  .verify.ok{color:var(--settle);font-weight:600}
-
-  #empty{display:none;text-align:center;color:#5B6B84;padding:40px 0}
-
-  .listcta{background:var(--ink);border-radius:14px;padding:38px 24px;text-align:center;color:#EAF0F9;margin-bottom:54px}
-  .listcta h2{font-family:"Space Grotesk",sans-serif;color:#fff;font-size:1.5rem}
-  .listcta p{color:#B9C7DE;max-width:52ch;margin:10px auto 0;font-size:.95rem}
-  .listcta a{display:inline-block;margin-top:20px;background:var(--settle);color:#fff;padding:13px 24px;border-radius:8px;font-weight:700;text-decoration:none;font-family:"Space Grotesk",sans-serif}
-  .listcta .alt{display:block;margin-top:12px;color:#8FA3C4;font-size:.8rem}
-  .listcta .alt a{all:unset;color:#fff;text-decoration:underline;cursor:pointer;font-size:.8rem}
-
-  footer{border-top:1px solid var(--line);padding:26px 0 40px;color:#5B6B84;font-size:.84rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-  footer a{color:var(--wire);text-decoration:none;font-weight:600}
-</style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-</head>
-<body>
-
-<header><div class="wrap bar">
-  <div class="logo">Agent<b>Exchange</b></div>
-  <nav class="navlinks">
-    <a href="https://x.com/YOUR_HANDLE" target="_blank" rel="noopener">X</a>
-    <a href="https://linkedin.com/in/YOUR_HANDLE" target="_blank" rel="noopener">LinkedIn</a>
-    <a class="btn" href="#list">+ List your tool</a>
-  </nav>
-</div></header>
-
-<main class="wrap">
-  <div class="hero">
-    <h1>The directory of tools AI agents<br>can use — <span class="pay">and pay for</span>.</h1>
-    <p class="sub">MCP servers and APIs, curated and categorized: what they do, what they cost, and how agents can call them. The trust layer of agent commerce starts with knowing what's out there.</p>
-    <p class="heromoji mono"><b>●</b> v1 directory · curated by hand · reliability scores coming next</p>
-  </div>
-
-  <div class="controls">
-    <input id="search" type="search" placeholder="Search tools… (e.g. finance, scraping, memory)" aria-label="Search tools">
-  </div>
-  <div class="chips" id="chips"></div>
-
-  <div id="grid"></div>
-  <p id="empty">No tools match — try another search, or <a href="#list">list yours</a>.</p>
-
-  <div class="listcta" id="list">
-    <h2>Built a tool agents should pay for?</h2>
-    <p>Get listed free as a founding member. We test every submission, write the agent-readable description, and — coming next — wrap it with pay-per-call so agents can pay you directly.</p>
-    <a href="https://github.com/YOUR_GITHUB/agentexchange/issues/new?title=List+my+tool:+&body=Tool+name:%0AWhat+it+does:%0ALink:%0AFree+or+paid:%0AYour+contact:" target="_blank" rel="noopener">List your tool — free →</a>
-    <span class="alt">Prefer email? <a href="mailto:YOUR_EMAIL?subject=List my tool on AgentExchange">YOUR_EMAIL</a></span>
-  </div>
-</main>
-
-<footer class="wrap">
-  <span>© 2026 AgentExchange · Curating the machine economy, in public</span>
-  <span><a href="https://github.com/YOUR_GITHUB/agentexchange" target="_blank" rel="noopener">Open source on GitHub</a></span>
-</footer>
-
-<script>
-/* ============== SEED DATA — v1 curated catalog ==============
-   Edit freely: add tools, fix links after verifying each on PulseMCP/GitHub. */
-const TOOLS=[
- {n:"Investment Research MCP",d:"16 finance tools in one server: SEC filings, insider trades, FINRA short interest, live quotes. A Bloomberg-in-miniature for agents.",c:"Finance",p:"free",proto:["MCP"],l:"https://www.pulsemcp.com",v:true},
- {n:"Walnut Portfolio Analysis",d:"Connect a portfolio and let Claude or ChatGPT analyze allocation, risk, and performance.",c:"Finance",p:"freemium",proto:["MCP"],l:"https://www.pulsemcp.com",v:true},
- {n:"Twelve Data / Yahoo Finance Workers",d:"Remote market-data servers on Cloudflare Workers — quotes, history, fundamentals over MCP.",c:"Finance",p:"freemium",proto:["MCP","Remote"],l:"https://www.pulsemcp.com",v:true},
- {n:"Tokenizin Web→Markdown",d:"Feed any URL, get clean agent-readable Markdown back. One of the most-used community converters (~7.5k weekly users).",c:"Web & Data",p:"free",proto:["MCP"],l:"https://www.pulsemcp.com",v:true},
- {n:"cotdp Web Extraction",d:"Scraping and structured extraction toolset — the raw material step of most agent workflows.",c:"Web & Data",p:"free",proto:["MCP"],l:"https://www.pulsemcp.com",v:true},
- {n:"PubFi Crypto Data Gateway",d:"Routed access to on-chain and market crypto data, built for agent consumption.",c:"Web & Data",p:"paid",proto:["MCP"],l:"https://www.pulsemcp.com",v:true},
- {n:"Nutrition Image Analysis",d:"Send a food photo, receive nutritional breakdown (Gemini + Nutritionix under the hood). 17k+ uses.",c:"Consumer",p:"free",proto:["MCP"],l:"https://www.pulsemcp.com",v:true},
- {n:"Wellness Project Coach",d:"Fitness, nutrition and sleep coaching tools with native Claude/ChatGPT integration.",c:"Consumer",p:"freemium",proto:["MCP"],l:"https://www.pulsemcp.com",v:true},
- {n:"Specialty Espresso Finder",d:"Curated specialty cafes with transparent quality scoring — curation as a service for agents.",c:"Consumer",p:"free",proto:["MCP"],l:"https://www.pulsemcp.com",v:true},
- {n:"BYTEROVER Memory",d:"Persistent memory layer so agents remember context across sessions — core agent infrastructure.",c:"Agent Infra",p:"freemium",proto:["MCP"],l:"https://www.pulsemcp.com",v:true},
- {n:"Push Realm Knowledge Base",d:"Collaborative KB where agents search, submit, and vote on solutions. Agent-to-agent knowledge economy.",c:"Agent Infra",p:"free",proto:["MCP"],l:"https://www.pulsemcp.com",v:true},
- {n:"Crest x402 Payee Verification",d:"Checks who your agent is about to pay — real service, relayer, treasury, or buyer. Trust tooling for agent payments.",c:"Payments",p:"free",proto:["x402","MCP"],l:"https://www.pulsemcp.com",v:true},
- {n:"HTTP 402 Challenge Inspector",d:"Analyzes payment challenges on x402 endpoints — the debugging layer of machine payments.",c:"Payments",p:"free",proto:["x402"],l:"https://www.pulsemcp.com",v:true},
- {n:"SVG Render Kit (arikusi)",d:"Structured JSON in, rendered SVG out — programmatic graphics for agent-generated content.",c:"Dev Tools",p:"free",proto:["MCP"],l:"https://www.pulsemcp.com",v:true},
- {n:"CI Failure Triage (imatza-rh)",d:"Analyzes CI build failures and searches logs — the kind of tool teams would gladly pay per incident.",c:"Dev Tools",p:"free",proto:["MCP"],l:"https://www.pulsemcp.com",v:true},
- {n:"S3 Snippet Manager",d:"Store, tag, and retrieve code snippets in your own S3 — lightweight memory for coding agents.",c:"Dev Tools",p:"free",proto:["MCP"],l:"https://www.pulsemcp.com",v:true},
- {n:"Browser Use",d:"Full browser control for agents — navigate, click, extract on any site. Core demand-side infrastructure.",c:"Agent Infra",p:"freemium",proto:["MCP","API"],l:"https://www.pulsemcp.com",v:true},
- {n:"Publora Social Publishing",d:"Publish to X, LinkedIn, Instagram, TikTok, YouTube and more from one integration — agents running social presence.",c:"Marketing",p:"paid",proto:["MCP","API"],l:"https://www.pulsemcp.com",v:true},
- {n:"AdButler Campaign Tools",d:"Full ad-platform management over MCP — agents placing and optimizing campaigns.",c:"Marketing",p:"paid",proto:["MCP"],l:"https://www.pulsemcp.com",v:true},
- {n:"Visuary Actuarial Calc",d:"Actuarial value from any health-plan document — specialist knowledge agents can invoke.",c:"Finance",p:"paid",proto:["MCP"],l:"https://www.pulsemcp.com",v:true},
- {n:"Apify Actors (Marketplace)",d:"Thousands of ready scrapers and automations agents can run pay-per-event — proof that agents already pay for tools.",c:"Web & Data",p:"paid",proto:["MCP","API"],l:"https://apify.com",v:true}
-];
-/* ============================================================ */
-
-const CATS=["All","Finance","Payments","Web & Data","Agent Infra","Dev Tools","Marketing","Consumer"];
-let activeCat="All", q="";
-const chips=document.getElementById("chips"), grid=document.getElementById("grid");
-
-CATS.forEach(c=>{
-  const b=document.createElement("button");b.className="chip"+(c==="All"?" on":"");b.textContent=c;
-  b.onclick=()=>{activeCat=c;document.querySelectorAll(".chip").forEach(x=>x.classList.remove("on"));b.classList.add("on");render()};
-  chips.appendChild(b);
-});
-document.getElementById("search").addEventListener("input",e=>{q=e.target.value.toLowerCase();render()});
-
-function render(){
-  grid.innerHTML="";
-  const list=TOOLS.filter(t=>
-    (activeCat==="All"||t.c===activeCat)&&
-    (!q||t.n.toLowerCase().includes(q)||t.d.toLowerCase().includes(q)||t.c.toLowerCase().includes(q))
-  );
-  document.getElementById("empty").style.display=list.length?"none":"block";
-  list.forEach(t=>{
-    const el=document.createElement("div");el.className="tool";
-    el.innerHTML=`
-      <div class="toolhead"><h3>${t.n}</h3><span class="price ${t.p}">${t.p==="free"?"FREE":t.p==="paid"?"PAID":"FREEMIUM"}</span></div>
-      <p>${t.d}</p>
-      <div class="meta"><span class="tag">${t.c}</span>${t.proto.map(p=>`<span class="tag mono">${p}</span>`).join("")}</div>
-      <div class="toolfoot">
-        <a href="${t.l}" target="_blank" rel="noopener">View tool →</a>
-        <span class="verify ${t.v?"ok":""}">${t.v?"✓ hand-verified":"unverified"}</span>
-      </div>`;
-    grid.appendChild(el);
-  });
-}
-render();
-</script>
-</body>
-</html>
