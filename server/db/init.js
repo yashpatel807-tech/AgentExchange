@@ -2,11 +2,12 @@ const Database = require('better-sqlite3');
 const path = require('path');
 const fs = require('fs');
 
-const DB_DIR = path.join(__dirname, '../../data');
-const DB_PATH = process.env.DB_PATH || path.join(DB_DIR, 'toolexchange.db');
+const DB_DIR = path.resolve(__dirname, '../../data');
+const DB_PATH = process.env.DB_PATH ? path.resolve(process.env.DB_PATH) : path.join(DB_DIR, 'toolexchange.db');
 
-if (!fs.existsSync(DB_DIR)) {
-  fs.mkdirSync(DB_DIR, { recursive: true });
+// Create directory if it doesn't exist
+if (!fs.existsSync(path.dirname(DB_PATH))) {
+  fs.mkdirSync(path.dirname(DB_PATH), { recursive: true });
 }
 
 const db = new Database(DB_PATH);
