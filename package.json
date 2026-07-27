@@ -1,0 +1,35 @@
+{
+  "name": "toolexchange-ai",
+  "version": "1.0.0",
+  "description": "The trust layer where AI agents discover, evaluate, and pay for tools — toolexchange.ai",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js",
+    "agent": "node agent/pay-demo.js",
+    "grade": "node grader/runner.js",
+    "grade:all": "node grader/runner.js --all",
+    "db:init": "node server/db/init.js",
+    "db:seed": "node server/db/seed.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "compression": "^1.7.4",
+    "dotenv": "^16.4.5",
+    "better-sqlite3": "^11.0.0",
+    "x402-express": "latest",
+    "x402-fetch": "latest",
+    "viem": "^2.21.0",
+    "node-cron": "^3.0.3",
+    "axios": "^1.7.2",
+    "express-rate-limit": "^7.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
+  "engines": {
+    "node": "20.x"
+  }
+}
