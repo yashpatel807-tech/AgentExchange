@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: toolexchange-ai
+    runtime: node
+    buildCommand: npm install && npm run db:init && npm run db:seed
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: DB_PATH
+        value: /data/toolexchange.db
+      - key: ADMIN_TOKEN
+        generateValue: true
+      - key: X402_ENABLED
+        value: false
+      - key: GRADER_ENABLED
+        value: true
+      - key: GRADER_INTERVAL_MINUTES
+        value: 60
+      - key: BASE_URL
+        value: https://toolexchange.ai
+    disk:
+      name: data
+      mountPath: /data
+      sizeGB: 1
